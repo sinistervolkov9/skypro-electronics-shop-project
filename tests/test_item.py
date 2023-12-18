@@ -58,9 +58,19 @@ def test_string_to_number():
     assert Item.string_to_number('5.5') == 5
 
 
+def test_repr_n_str():
+    item1 = Item("Смартфон", 10000, 20)
+
+    #
+
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+    assert str(item1) == 'Смартфон'
+
+
 if __name__ == "__main__":
     test_calculate_total_price()
     test_apply_discount()
     test_property()
     test_instantiate_from_csv()
+    test_repr_n_str()
     #   print("Всё ок!")

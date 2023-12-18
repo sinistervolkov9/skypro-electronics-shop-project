@@ -30,8 +30,14 @@ if __name__ == '__main__':
 
     Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
 
-    item1 = Item.all[0]
-    assert item1.name == 'Смартфон'
-    assert Item.string_to_number('5') == 5
-    assert Item.string_to_number('5.0') == 5
-    assert Item.string_to_number('5.5') == 5
+    # item1 = Item.all[0]
+    # assert item1.name == 'Смартфон'
+    # assert Item.string_to_number('5') == 5
+    # assert Item.string_to_number('5.0') == 5
+    # assert Item.string_to_number('5.5') == 5
+
+    # дз3
+
+    item1 = Item("Смартфон", 10000, 20)
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+    assert str(item1) == 'Смартфон'
