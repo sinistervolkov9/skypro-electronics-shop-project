@@ -67,10 +67,20 @@ def test_repr_n_str():
     assert str(item1) == 'Смартфон'
 
 
+def test_add():
+    item_1 = Item("Смартфон", 10000, 10)
+    item_2 = Item("Смартфон", 10000, 20)
+
+    #
+
+    assert item_1 + item_2 == 30
+
+
 if __name__ == "__main__":
     test_calculate_total_price()
     test_apply_discount()
     test_property()
     test_instantiate_from_csv()
     test_repr_n_str()
+    test_add()
     #   print("Всё ок!")
