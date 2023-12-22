@@ -22,8 +22,8 @@ class Phone(Item):
         else:
             self._number_of_sim = value
 
-    def check_sim(self):
-        if int(self._number_of_sim) < 1 or not isinstance(self._number_of_sim, int):
-            return "ValueError: Количество физических SIM-карт должно быть целым числом больше нуля."
-        else:
-            return None
+    # def check_sim(self):
+    #     if int(self._number_of_sim) < 1 or not isinstance(self._number_of_sim, int):
+    #         return "ValueError: Количество физических SIM-карт должно быть целым числом больше нуля."
+    #     else:
+    #         return None

@@ -1,5 +1,6 @@
 from src.item import Item
 from src.phone import Phone
+from src.keyboard import Keyboard
 
 if __name__ == '__main__':
     # item1 = Item("Смартфон", 10000, 20)
@@ -55,6 +56,23 @@ if __name__ == '__main__':
     assert item1 + phone1 == 25
     assert phone1 + phone1 == 10
 
-    phone1.number_of_sim = 0
-    phone1.check_sim()
+    # phone1.number_of_sim = 0
+    # phone1.check_sim()
     # ValueError: Количество физических SIM-карт должно быть целым числом больше нуля.
+
+    # дз5
+
+    kb = Keyboard('Dark Project KD87A', 9600, 5)
+    assert str(kb) == "Dark Project KD87A"
+
+    assert str(kb.language) == "EN"
+
+    kb.change_lang()
+    assert str(kb.language) == "RU"
+
+    # Сделали EN -> RU -> EN
+    kb.change_lang()
+    assert str(kb.language) == "EN"
+
+    kb.language = 'CH'
+    # AttributeError: property 'language' of 'Keyboard' object has no setter
