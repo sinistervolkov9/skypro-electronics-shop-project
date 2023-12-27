@@ -14,10 +14,16 @@ class Keyboard(Item):
     def language(self):
         return self._language
 
-    @language.setter
     def change_lang(self):
         index = self._lang_list.index(self._language)
         if index == len(self._lang_list) - 1:
             self._language = self._lang_list[0]
         else:
             self._language = self._lang_list[index + 1]
+
+    @language.setter
+    def language(self, value):
+        if value in self._lang_list:
+            self._language = value
+        else:
+            raise AttributeError("property 'language' of 'Keyboard' object has no setter")
