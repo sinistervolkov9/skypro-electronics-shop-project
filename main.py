@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # item.name = 'СуперСмартфон'
     # # Exception: Длина наименования товара превышает 10 символов.
 
-    Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
+    # Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
 
     # item1 = Item.all[0]
     # assert item1.name == 'Смартфон'
@@ -74,5 +74,15 @@ if __name__ == '__main__':
     kb.change_lang()
     assert str(kb.language) == "EN"
 
-    kb.language = 'CH'
+    # kb.language = 'CH'
     # AttributeError: property 'language' of 'Keyboard' object has no setter
+
+    # дз6
+
+    # Файл items.csv отсутствует.
+    Item.instantiate_from_csv()
+    # FileNotFoundError: Отсутствует файл item.csv
+
+    # В файле items.csv удалена последняя колонка.
+    Item.instantiate_from_csv()
+    # InstantiateCSVError: Файл item.csv поврежден

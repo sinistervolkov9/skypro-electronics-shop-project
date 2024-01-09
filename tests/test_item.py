@@ -1,4 +1,5 @@
 from src.item import Item
+import pytest
 
 
 def test_calculate_total_price():
@@ -45,11 +46,21 @@ def test_instantiate_from_csv():
     Item.all = []
     Item.instantiate_from_csv('items.csv')
 
+    #
+
     assert len(Item.all) == 5
 
+def test_instantiate_from_csv_error():
+    Item.instantiate_from_csv()
+
+    #
+
+    assert FileNotFoundError
 
 def test_string_to_number():
     item1 = Item.all[0]
+
+    #
 
     assert item1.name == 'Смартфон'
 
@@ -81,6 +92,7 @@ if __name__ == "__main__":
     test_apply_discount()
     test_property()
     test_instantiate_from_csv()
+    test_instantiate_from_csv_error()
     test_repr_n_str()
     test_add()
     #   print("Всё ок!")
