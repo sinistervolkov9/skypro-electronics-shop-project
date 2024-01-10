@@ -76,12 +76,11 @@ class Item:
                 if reader.fieldnames[0] == "name" and reader.fieldnames[1] == "price" and reader.fieldnames[2] == "quantity":
                     for i in reader:
                         if i['name'] == None or i['price'] == None or i['quantity'] == None:
-                            InstantiateCSVError('Файл item.csv поврежден')
+                            raise InstantiateCSVError("Файл item.csv поврежден")
                         else:
                             cls(i['name'], i['price'], i['quantity'])
         except FileNotFoundError:
-            print("FileNotFoundError: отсутствует файл items.csv")
-
+            raise FileNotFoundError("отсутствует файл items.csv")
 
     @staticmethod
     def string_to_number(string):

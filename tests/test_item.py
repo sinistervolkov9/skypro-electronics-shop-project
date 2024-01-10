@@ -55,7 +55,7 @@ def test_instantiate_from_csv_error():
 
     #
 
-    assert FileNotFoundError
+    assert FileNotFoundError("отсутствует файл items.csv")
 
 def test_string_to_number():
     item1 = Item.all[0]
