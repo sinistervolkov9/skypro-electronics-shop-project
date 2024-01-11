@@ -50,18 +50,16 @@ def test_instantiate_from_csv():
 
     assert len(Item.all) == 5
 
+
 def test_instantiate_from_csv_error():
     with pytest.raises(FileNotFoundError):
         Item.instantiate_from_csv(file="bad_path.csv")
-
-    assert FileNotFoundError("отсутствует файл items.csv")
 
     #
 
     with pytest.raises(InstantiateCSVError):
         Item.instantiate_from_csv(file="file_without_data.csv")
 
-    assert InstantiateCSVError("Файл item.csv поврежден")
 
 def test_string_to_number():
     item1 = Item.all[0]

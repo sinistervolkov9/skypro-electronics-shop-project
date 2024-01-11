@@ -73,7 +73,8 @@ class Item:
         try:
             with open(path, newline='') as csvfile:
                 reader = csv.DictReader(csvfile)
-                if reader.fieldnames[0] == "name" and reader.fieldnames[1] == "price" and reader.fieldnames[2] == "quantity":
+                if reader.fieldnames[0] == "name" and reader.fieldnames[1] == "price" and reader.fieldnames[
+                    2] == "quantity":
                     for i in reader:
                         if not (i['name'] and i['price'] and i['quantity']):
                             raise InstantiateCSVError("Файл item.csv поврежден")
