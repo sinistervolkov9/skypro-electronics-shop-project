@@ -1,18 +1,88 @@
 from src.item import Item
+from src.phone import Phone
+from src.keyboard import Keyboard
 
 if __name__ == '__main__':
+    # item1 = Item("Смартфон", 10000, 20)
+    # item2 = Item("Ноутбук", 20000, 5)
+    #
+    # print(item1.calculate_total_price())  # 200000
+    # print(item2.calculate_total_price())  # 100000
+    #
+    # # устанавливаем новый уровень цен
+    # Item.pay_rate = 0.8
+    # # применяем скидку
+    # item1.apply_discount()
+    #
+    # print(item1.price)  # 8000.0
+    # print(item2.price)  # 20000
+    #
+    # print(Item.all)  # [<__main__.Item object at 0x000001EC6250C690>, <__main__.Item object at 0x000001EC6250C6D0>]
+
+    # дз2
+
+    # item = Item('Телефон', 10000, 5)
+    #
+    # # длина наименования товара меньше 10 символов
+    # item.name = 'Смартфон'
+    #
+    # # длина наименования товара больше 10 символов
+    # item.name = 'СуперСмартфон'
+    # # Exception: Длина наименования товара превышает 10 символов.
+
+    # Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
+
+    # item1 = Item.all[0]
+    # assert item1.name == 'Смартфон'
+    # assert Item.string_to_number('5') == 5
+    # assert Item.string_to_number('5.0') == 5
+    # assert Item.string_to_number('5.5') == 5
+
+    # дз3
+
+    # item1 = Item("Смартфон", 10000, 20)
+    # assert repr(item1) == "Item('Смартфон', 10000, 20)"
+    # assert str(item1) == 'Смартфон'
+
+    # дз4
+
+    # смартфон iPhone 14, цена 120_000, количество товара 5, симкарт 2
+    phone1 = Phone("iPhone 14", 120_000, 5, 2)
+    assert str(phone1) == 'iPhone 14'
+    assert repr(phone1) == "Phone('iPhone 14', 120000, 5, 2)"
+    assert phone1.number_of_sim == 2
+
     item1 = Item("Смартфон", 10000, 20)
-    item2 = Item("Ноутбук", 20000, 5)
+    assert item1 + phone1 == 25
+    assert phone1 + phone1 == 10
 
-    print(item1.calculate_total_price())  # 200000
-    print(item2.calculate_total_price())  # 100000
+    # phone1.number_of_sim = 0
+    # phone1.check_sim()
+    # ValueError: Количество физических SIM-карт должно быть целым числом больше нуля.
 
-    # устанавливаем новый уровень цен
-    Item.pay_rate = 0.8
-    # применяем скидку
-    item1.apply_discount()
+    # дз5
 
-    print(item1.price)  # 8000.0
-    print(item2.price)  # 20000
+    kb = Keyboard('Dark Project KD87A', 9600, 5)
+    assert str(kb) == "Dark Project KD87A"
 
-    print(Item.all)  # [<__main__.Item object at 0x000001EC6250C690>, <__main__.Item object at 0x000001EC6250C6D0>]
+    assert str(kb.language) == "EN"
+
+    kb.change_lang()
+    assert str(kb.language) == "RU"
+
+    # Сделали EN -> RU -> EN
+    kb.change_lang()
+    assert str(kb.language) == "EN"
+
+    # kb.language = 'CH'
+    # AttributeError: property 'language' of 'Keyboard' object has no setter
+
+    # дз6
+
+    # Файл items.csv отсутствует.
+    Item.instantiate_from_csv()
+    # FileNotFoundError: Отсутствует файл item.csv
+
+    # В файле items.csv удалена последняя колонка.
+    Item.instantiate_from_csv()
+    # InstantiateCSVError: Файл item.csv поврежден
